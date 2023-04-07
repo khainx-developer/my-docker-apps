@@ -1,0 +1,20 @@
+version: '3.5'
+
+networks:
+  db-network:
+    name: db-network
+    driver: bridge
+
+services:
+  db.mssql:
+    image: mcr.microsoft.com/mssql/server:2017-latest
+    container_name: db-mssql
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=P@ssw0rd
+    volumes:
+      - ./database/mssql/data:/var/opt/mssql/data
+    ports:
+      - 1433:1433
+    networks:
+      - db-network

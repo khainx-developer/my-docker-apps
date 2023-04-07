@@ -1,0 +1,17 @@
+version: '3.5'
+
+networks:
+  db-network:
+    name: db-network
+    driver: bridge
+
+services:
+  db.mongodb:
+    image: mongo:4.2
+    container_name: db-mongodb
+    ports:
+      - 27017:27017
+    volumes:
+      - './database/mongo:/data/db'
+    networks:
+      - db-network
