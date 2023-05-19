@@ -11,7 +11,6 @@ services:
     container_name: sonardb
     volumes:
       - ./database/sonardb:/bitnami/postgresql
-    restart: always
     environment:
       POSTGRESQL_PORT_NUMBER: 5432
       POSTGRESQL_VOLUME_DIR: /bitnami/postgresql
@@ -27,7 +26,6 @@ services:
       - sonardb
     image: sonarqube:8.6.0-community
     container_name: sonarqube
-    restart: always
     ports:
       - "9000:9000"
       - "9092:9092"
