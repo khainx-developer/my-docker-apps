@@ -1,8 +1,8 @@
 version: '3.5'
 
 networks:
-  db-network:
-    name: db-network
+  myapps-network:
+    name: myapps-network
     driver: bridge
 
 services:
@@ -20,4 +20,4 @@ services:
     ports:
       - 3306:3306
     networks:
-      - db-network
+      - myapps-network

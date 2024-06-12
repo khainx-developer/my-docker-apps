@@ -1,0 +1,16 @@
+version: "3.9"
+
+networks:
+  myapps-network:
+    name: myapps-network
+    driver: bridge
+
+services:
+  local-smtp:
+    image: rnwood/smtp4dev
+    container_name: wisory-localsmtp
+    ports:
+      - "8025:80"
+      - "25:25"
+    networks:
+      - myapps-network

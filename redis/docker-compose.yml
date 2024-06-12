@@ -1,0 +1,15 @@
+version: "3.9"
+
+networks:
+  myapps-network:
+    name: myapps-network
+    driver: bridge
+
+services:
+  redis:
+    image: redis:4.0.11
+    container_name: redis
+    ports:
+      - 6379:6379
+    networks:
+      - myapps-network

@@ -1,0 +1,22 @@
+version: "3.9"
+
+networks:
+  myapps-network:
+    name: myapps-network
+    driver: bridge
+
+services:
+  postgres_db:
+    image: postgres:12.5
+    container_name: postgres-database
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./database/postgres_db_volume:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "P@ssword123"
+      POSTGRES_DB: "postgres"
+      PGDATA: "/var/lib/postgresql/data/pgdata"
+    networks:
+      - myapps-network
